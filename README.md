@@ -1,3 +1,4 @@
+<img width="897" height="643" alt="simulacao_parte22" src="https://github.com/user-attachments/assets/1fa92e99-4603-47c7-bbdc-ae1c099cd57f" />
 # Projeto 3
 Projeto 3 de SEL0433 - Aplicação de Microprocessadores
 Alexsandra Pavani Xavier N°USP 14681372
