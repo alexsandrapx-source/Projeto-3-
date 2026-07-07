@@ -99,6 +99,9 @@ Ao final de cada repetição do programa, os valores de intensidade das três co
 
 **Figura 1.** Simulação da Parte 1 no Wokwi.
 
+## Discussão dos resultados
+O sistema apresentou o comportamento esperado, variando continuamente a intensidade das três cores do LED RGB por meio do PWM. Como cada canal utiliza um incremento diferente, foram obtidas diversas combinações de cores ao longo da execução. Os valores exibidos no Monitor Serial confirmaram a correta atualização dos duty cycles.
+
 
 # Parte 2.1
 
@@ -183,135 +186,10 @@ Os valores da leitura analógica e do ângulo calculado são enviados ao Monitor
 
 **Figura 3.** Simulação da Parte 2.1 no Wokwi.
 
-# Parte 2.2 – Controle de uma Cortina Inteligente com Sensor LDR e Display OLED
+## Discussão dos resultados
+O servo motor respondeu corretamente às variações do potenciômetro, movimentando seu eixo de forma proporcional entre 0° e 180°. A leitura do ADC e o ângulo calculado foram exibidos no Monitor Serial, confirmando o correto funcionamento da conversão analógico-digital.
 
-## Objetivo
-O objetivo desta etapa foi desenvolver um sistema de controle para uma cortina inteligente utilizando um sensor de luminosidade (LDR), um servo motor e um display OLED. O ESP32 realiza a leitura da intensidade luminosa, converte esse valor em um ângulo para o servo motor, que representa a abertura da cortina, e exibe em tempo real as informações de luminosidade, ângulo e estado da cortina no display OLED e no Monitor Serial.
-
-## Bibliotecas utilizadas
-```cpp
-#include <Arduino.h>
-#include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
-#include <ESP32Servo.h>
-```
-Foram utilizadas as seguintes bibliotecas:
-- Arduino.h: disponibiliza as funções básicas da plataforma Arduino/ESP32.
-- Wire.h: utilizada para comunicação I²C entre o ESP32 e o display OLED.
-- Adafruit_GFX.h: fornece funções gráficas para escrita de textos e desenhos.
-- Adafruit_SSD1306.h: permite o controle do display OLED SSD1306.
-- ESP32Servo.h: utilizada para controlar o servo motor por meio de PWM.
-
-## Configuração do display e dos pinos
-```cpp
-#define SCREEN_WIDTH 128
-#define SCREEN_HEIGHT 64
-
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
-
-Servo cortina;
-
-const int pinoServo = 18;
-const int pinoLDR = 34;
-```
-Neste trecho são definidos os parâmetros do display OLED e os pinos utilizados pelo circuito.
-- Display OLED: resolução de 128 × 64 pixels.
-- GPIO 18: controle do servo motor.
-- GPIO 34: entrada analógica conectada ao sensor LDR.
-
-## Inicialização do sistema
-```cpp
-void setup()
-{
-  Serial.begin(115200);
-
-  Wire.begin(21, 22);
-
-  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
-
-  display.clearDisplay();
-  display.display();
-
-  cortina.attach(pinoServo);
-}
-```
-Na inicialização são configurados:
-- a comunicação serial;
-- o barramento I²C do display OLED;
-- o display SSD1306;
-- o servo motor, associado ao pino de controle.
-
-## Leitura do sensor de luminosidade
-```cpp
-luminosidade = analogRead(pinoLDR);
-```
-O ESP32 realiza continuamente a leitura do sensor LDR utilizando o conversor Analógico-Digital (ADC). O valor obtido varia entre 0 e 4095, conforme a intensidade luminosa incidente sobre o sensor.
-
-## Controle da cortina
-```cpp
-angulo = map(luminosidade, 0, 4095, 0, 180);
-
-cortina.write(angulo);
-```
-A leitura do sensor é convertida para um ângulo entre 0° e 180° utilizando a função `map()`. Em seguida, esse valor é enviado ao servo motor, que ajusta a abertura da cortina de forma proporcional à luminosidade medida.
-
-## Monitor Serial
-```cpp
-Serial.print("Luminosidade: ");
-Serial.print(luminosidade);
-
-Serial.print("   Angulo: ");
-Serial.println(angulo);
-```
-Durante a execução do programa, os valores de luminosidade e do ângulo calculado são enviados ao Monitor Serial, permitindo acompanhar o funcionamento do sistema em tempo real.
-
-## Atualização do display OLED
-```cpp
-display.clearDisplay();
-
-display.setTextColor(SSD1306_WHITE);
-
-display.setTextSize(1);
-display.setCursor(30, 0);
-display.println("ESTUFA");
-
-display.setCursor(18, 10);
-display.println("INTELIGENTE");
-```
-O display OLED é atualizado continuamente para apresentar informações do sistema. Inicialmente é exibido o título **"ESTUFA INTELIGENTE"**, seguido pelos valores medidos e calculados. Posteriormente são mostrados:
-- intensidade luminosa;
-- ângulo da cortina;
-- estado atual da cortina.
-  
-## Identificação do estado da cortina
-```cpp
-if (angulo < 60)
-{
-    display.print("FECHADA");
-}
-else if (angulo < 120)
-{
-    display.print("MEIA");
-}
-else
-{
-    display.print("ABERTA");
-}
-```
-O programa classifica automaticamente a posição da cortina de acordo com o ângulo calculado:
-- 0° a 59°: FECHADA;
-- 60° a 119°: MEIA;
-- 120° a 180°: ABERTA.
-Essa informação é apresentada no display OLED para facilitar a visualização do estado do sistema.
-
-## Simulação
-
-<img width="897" height="643" alt="simulacao_parte22" src="https://github.com/user-attachments/assets/f7829a5c-3265-460f-96bc-318a9c706791" />
-
-**Figura 4.** Simulação da Parte 2.2 no Wokwi.
 
 ## Conclusão
 
-O Projeto 3 possibilitou a aplicação prática de conceitos fundamentais de sistemas embarcados utilizando o ESP32. Ao longo das três etapas, foram implementadas aplicações envolvendo controle por PWM, leitura de sinais analógicos por meio do ADC, acionamento de servo motor, comunicação serial e utilização de um display OLED via protocolo I²C. As simulações realizadas no Wokwi demonstraram o funcionamento correto dos sistemas desenvolvidos, validando a integração entre hardware e software e os objetivos propostos para cada etapa do projeto.
-
+O desenvolvimento deste projeto permitiu aplicar, de forma prática, conceitos de sistemas embarcados utilizando o ESP32. Foram implementadas aplicações envolvendo controle por PWM, leitura de sinais analógicos por meio do ADC e comunicação serial, permitindo compreender a integração entre hardware e software em sistemas embarcados. As simulações realizadas no Wokwi validaram o funcionamento das soluções desenvolvidas, demonstrando que os objetivos propostos para cada etapa foram alcançados.
