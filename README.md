@@ -1,4 +1,3 @@
-<img width="897" height="643" alt="simulacao_parte22" src="https://github.com/user-attachments/assets/1fa92e99-4603-47c7-bbdc-ae1c099cd57f" />
 # Projeto 3
 Projeto 3 de SEL0433 - Aplicação de Microprocessadores
 Alexsandra Pavani Xavier N°USP 14681372
@@ -95,9 +94,8 @@ Serial.println(B);
 Ao final de cada repetição do programa, os valores de intensidade das três cores são enviados ao Monitor Serial. Esse recurso facilita a verificação do funcionamento do algoritmo, permitindo acompanhar em tempo real a evolução dos níveis de PWM aplicados ao LED RGB.
 
 ## Simulação
-
-**Inserir nesta seção uma captura da simulação realizada no Wokwi mostrando o LED RGB em funcionamento.**
-
+<img width="715" height="617" alt="simulacao_parte1" src="https://github.com/user-attachments/assets/2163b0fa-6000-4b2b-8214-d78165a11396" />
+**Figura 1.** Simulação da Parte 1 no Wokwi.
 
 
 # Parte 2.1
@@ -175,7 +173,11 @@ Os valores da leitura analógica e do ângulo calculado são enviados ao Monitor
 
 ## Simulação
 
-**Inserir nesta seção uma captura da simulação realizada no Wokwi mostrando o controle do servo motor pelo potenciômetro.**
+<img width="1107" height="740" alt="simulacao_parte21_0graus" src="https://github.com/user-attachments/assets/e0f282cd-190a-4cd5-b3d0-74710f755013" />
+**Figura 2.** Simulação da Parte 2.1 no Wokwi.
+
+<img width="1112" height="688" alt="simulacao_parte21_180graus" src="https://github.com/user-attachments/assets/4060957e-3ee7-4783-a162-38e1be32dd94" />
+**Figura 3.** Simulação da Parte 2.1 no Wokwi.
 
 # Parte 2.2 – Controle de uma Cortina Inteligente com Sensor LDR e Display OLED
 
@@ -300,5 +302,10 @@ O programa classifica automaticamente a posição da cortina de acordo com o ân
 Essa informação é apresentada no display OLED para facilitar a visualização do estado do sistema.
 
 ## Simulação
+<img width="897" height="643" alt="simulacao_parte22" src="https://github.com/user-attachments/assets/f7829a5c-3265-460f-96bc-318a9c706791" />
+**Figura 4.** Simulação da Parte 2.2 no Wokwi.
 
-**Inserir nesta seção uma captura da simulação realizada no Wokwi mostrando o funcionamento do sistema.**
+## Conclusão
+
+O Projeto 3 possibilitou a aplicação prática de conceitos fundamentais de sistemas embarcados utilizando o ESP32. Ao longo das três etapas, foram implementadas aplicações envolvendo controle por PWM, leitura de sinais analógicos por meio do ADC, acionamento de servo motor, comunicação serial e utilização de um display OLED via protocolo I²C. As simulações realizadas no Wokwi demonstraram o funcionamento correto dos sistemas desenvolvidos, validando a integração entre hardware e software e os objetivos propostos para cada etapa do projeto.
+
