@@ -1,0 +1,92 @@
+## Código Parte 1 — PWM RGB
+
+```cpp
+#include <Arduino.h>
+
+const uint16_t frequenciaPWM = 5000;
+const uint8_t resolucaoPWM = 8;
+const uint8_t ledR = 4, ledG = 0, ledB = 2;
+
+const uint8_t incremento = 5;
+
+volatile uint8_t R, G, B;
+
+void setup() {
+
+  Serial.begin(115200);
+
+  ledcAttach(ledR, frequenciaPWM, resolucaoPWM);
+  ledcAttach(ledG, frequenciaPWM, resolucaoPWM);
+  ledcAttach(ledB, frequenciaPWM, resolucaoPWM);
+
+}
+
+void loop() {
+
+  R = R + incremento;
+  G = G + incremento * 2;
+  B = B + incremento * 3;
+
+  ledcWrite(ledR, R);
+  delay(10);
+
+  ledcWrite(ledG, G);
+  delay(10);
+
+  ledcWrite(ledB, B);
+  delay(10);
+
+  Serial.print("LED vermelho: ");
+  Serial.println(R);
+
+  Serial.print("LED verde: ");
+  Serial.println(G);
+
+  Serial.print("LED azul: ");
+  Serial.println(B);
+
+}
+```
+
+---
+
+## Código Parte 2.1 — Controle de Servo com Potenciômetro
+
+```cpp
+#include <Arduino.h>
+#include <ESP32Servo.h>
+
+const uint8_t pinoServo = 18;
+const uint8_t pinoPot = 34;
+
+Servo servoMotor;
+
+int leituraADC;
+int angulo;
+
+void setup() {
+
+  Serial.begin(115200);
+
+  servoMotor.attach(pinoServo);
+
+}
+
+void loop() {
+
+  leituraADC = analogRead(pinoPot);
+
+  angulo = map(leituraADC, 0, 4095, 0, 180);
+
+  servoMotor.write(angulo);
+
+  Serial.print("ADC: ");
+  Serial.print(leituraADC);
+
+  Serial.print("   Angulo: ");
+  Serial.println(angulo);
+
+  delay(50);
+
+}
+```
