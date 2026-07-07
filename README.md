@@ -2,7 +2,7 @@
 Projeto 3 de SEL0433 - Aplicação de Microprocessadores
 Alexsandra Pavani Xavier N°USP 14681372
 
-# Parte 1--------------------------------------------------------------------------------------------------------------------------------------------------------- 
+# Parte 1
 
 ## Objetivo
 O objetivo desta etapa foi controlar a intensidade luminosa de um LED RGB utilizando a técnica de Modulação por Largura de Pulso (PWM – Pulse Width Modulation). Cada uma das três cores (vermelho, verde e azul) possui seu nível de brilho alterado automaticamente ao longo da execução do programa, produzindo diferentes combinações de cores. Além disso, os valores enviados ao LED são monitorados pela comunicação serial.
@@ -99,7 +99,7 @@ Ao final de cada repetição do programa, os valores de intensidade das três co
 
 
 
-# Parte 2.1--------------------------------------------------------------------------------------------------------------------------------------------------------
+# Parte 2.1
 
 ## Objetivo
 O objetivo desta etapa foi controlar a posição angular de um servo motor utilizando um potenciômetro. O ESP32 realiza a leitura da tensão fornecida pelo potenciômetro por meio do conversor Analógico-Digital (ADC), converte esse valor para um ângulo entre 0° e 180° e posiciona o servo de forma proporcional. Além disso, os valores lidos são exibidos no Monitor Serial para facilitar a verificação do funcionamento do sistema.
@@ -176,7 +176,7 @@ Os valores da leitura analógica e do ângulo calculado são enviados ao Monitor
 
 **Inserir nesta seção uma captura da simulação realizada no Wokwi mostrando o controle do servo motor pelo potenciômetro.**
 
-# Parte 2.2 – Controle de uma Cortina Inteligente com Sensor LDR e Display OLED------------------------------------------------------------------------------------
+# Parte 2.2 – Controle de uma Cortina Inteligente com Sensor LDR e Display OLED
 
 ## Objetivo
 O objetivo desta etapa foi desenvolver um sistema de controle para uma cortina inteligente utilizando um sensor de luminosidade (LDR), um servo motor e um display OLED. O ESP32 realiza a leitura da intensidade luminosa, converte esse valor em um ângulo para o servo motor, que representa a abertura da cortina, e exibe em tempo real as informações de luminosidade, ângulo e estado da cortina no display OLED e no Monitor Serial.
