@@ -96,6 +96,7 @@ Ao final de cada repetição do programa, os valores de intensidade das três co
 
 ## Simulação
 <img width="715" height="617" alt="simulacao_parte1" src="https://github.com/user-attachments/assets/2163b0fa-6000-4b2b-8214-d78165a11396" />
+
 **Figura 1.** Simulação da Parte 1 no Wokwi.
 
 
@@ -175,9 +176,11 @@ Os valores da leitura analógica e do ângulo calculado são enviados ao Monitor
 ## Simulação
 
 <img width="1107" height="740" alt="simulacao_parte21_0graus" src="https://github.com/user-attachments/assets/e0f282cd-190a-4cd5-b3d0-74710f755013" />
+
 **Figura 2.** Simulação da Parte 2.1 no Wokwi.
 
 <img width="1112" height="688" alt="simulacao_parte21_180graus" src="https://github.com/user-attachments/assets/4060957e-3ee7-4783-a162-38e1be32dd94" />
+
 **Figura 3.** Simulação da Parte 2.1 no Wokwi.
 
 # Parte 2.2 – Controle de uma Cortina Inteligente com Sensor LDR e Display OLED
@@ -303,7 +306,9 @@ O programa classifica automaticamente a posição da cortina de acordo com o ân
 Essa informação é apresentada no display OLED para facilitar a visualização do estado do sistema.
 
 ## Simulação
+
 <img width="897" height="643" alt="simulacao_parte22" src="https://github.com/user-attachments/assets/f7829a5c-3265-460f-96bc-318a9c706791" />
+
 **Figura 4.** Simulação da Parte 2.2 no Wokwi.
 
 ## Conclusão
